@@ -1,0 +1,12 @@
+.DS_Store
+
+# Chặn sẵn file nguồn của khách: repo này public, không được chứa RFP
+# hay bất kỳ tài liệu gốc nào do khách cấp.
+*.xlsx
+*.xls
+*.pdf
+*.docx
+
+# Biến môi trường, khoá
+.env
+.env.*
