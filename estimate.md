@@ -152,7 +152,7 @@ Dải kỳ vọng đặt **trước** khi tính: 3–8 giờ/SWP. Kết quả 4,
 
 ## 3. Tổng theo epic
 
-| Epic | Số issue | Tổng SWP | Tổng giờ | Ghi chú |
+| Epic | Issue mức 1 | Tổng SWP | Tổng giờ | Ghi chú |
 |---|---:|---:|---:|---|
 | [#3](https://github.com/datdt-0510/thacsiai05-lab5/issues/3) Nền tảng | 6 | 35 | 165,0 | Không có nó thì không màn nào dựng được |
 | [#4](https://github.com/datdt-0510/thacsiai05-lab5/issues/4) Tư cách tham gia | 6 | 26 | 123,0 | Gồm chốt chặn 許可/承認 |
@@ -162,6 +162,10 @@ Dải kỳ vọng đặt **trước** khi tính: 3–8 giờ/SWP. Kết quả 4,
 | [#8](https://github.com/datdt-0510/thacsiai05-lab5/issues/8) Chốt sổ & thưởng | 5 | **40** | 188,0 | **Nặng nhất** — 5 tham số `BR-INC-01` + khoá ngày |
 | [#9](https://github.com/datdt-0510/thacsiai05-lab5/issues/9) Quản trị | 6 | 26 | 122,5 | 5 màn, nhiều nhất |
 | **Tổng** | **35** | **173** | **815,5** | ≈ 5,83 người-tháng |
+
+Cột *Issue mức 1* đếm **con trực tiếp của epic**, không đếm sub-issue bên dưới. Hai mươi trong số
+35 issue đó là **story màn hình**, mỗi story có thêm 6 sub-issue giai đoạn — nên toàn Project có
+**142 work item mang điểm**. Điểm của story là tổng của sáu con nên tổng cột SWP không đổi.
 
 Hai epic nặng nhất — Nền tảng và Chốt sổ — chiếm **43%** tổng điểm. Hợp lý: một bên là móng, một
 bên mang toàn bộ ràng buộc nghiệp vụ đặc thù của Product A.
