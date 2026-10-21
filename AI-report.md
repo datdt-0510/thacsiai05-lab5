@@ -328,9 +328,10 @@ Hai quyết định phải chốt trước khi chạy, vì sai là phải làm l
    sub-issue. Chính luật *"mỗi tài liệu một sub-issue"* dẫn tới kết luận đó.
 2. **Điểm xử thế nào.** Ba sub-issue giai đoạn 1–2 mang **0 SWP và `Done`**, vì tài liệu của chúng
    chính là LAB-4 đã nộp — việc đã xong, không còn công để ước. Điểm của story chia cho testcase ·
-   coding · testing theo công thức `testcase 1 · testing 1 · coding = S − 2`, giờ chia theo tỷ lệ
-   điểm rồi dồn phần dư vào coding. Nhờ vậy **tổng giữ nguyên 173 SWP / 815,5 giờ**, không phải
-   tính lại hệ số 4,7 giờ/SWP hay viết lại mục so sánh với LAB-1.
+   coding · testing. Nhờ vậy **tổng giữ nguyên 173 SWP / 815,5 giờ**, không phải tính lại hệ số
+   4,7 giờ/SWP hay viết lại mục so sánh với LAB-1. Cách chia ban đầu là một công thức cứng
+   (`testcase 1 · testing 1 · coding = S−2`); sau đó đã thay bằng cách chia theo bằng chứng —
+   xem §2.9.
 
 Kiểm sau khi chạy: 20/20 story có điểm cha **đúng bằng** tổng con, cả SWP lẫn giờ; 0 trường thiếu
 trên 173 item.
@@ -346,6 +347,58 @@ Giữ được cả luật nghiệp vụ lẫn tổng điểm.
 nên `addSubIssue` vừa chạy là item tự vào board, và điều kiện "đã có trên board thì bỏ qua" của tôi
 hiểu nhầm thành "đã xử lý xong". Bài học: **sự hiện diện trên board không phải dấu hiệu đã xử lý** —
 phải kiểm chính giá trị trường.
+
+
+### 2.9 Chạy lại skill trên backlog mới — và chỗ khuyến nghị của tôi sai
+
+Sau khi dựng lại theo vòng đời story, tôi khuyến nghị **chạy lại skill chấm toàn bộ 142 lá**, vì đề
+viết *"skill chấm từng issue"* mà 120 sub-issue mới thì chưa qua lần chấm nào. Chạy được hai lô thì
+phải dừng, và dừng là đúng.
+
+**Phát hiện 1 — hai worker chấm cùng một khuôn ra hai điểm khác nhau.** Các sub-issue vòng đời sinh
+từ đúng một khuôn, thân giống hệt nhau chỉ khác mã màn. Vậy mà:
+
+| Khuôn | Lô 1 | Lô 2 |
+|---|---|---|
+| Tạo tài liệu Requirement | S2·C0 → **2** | S1·C0 → **1** |
+| Tạo tài liệu API Design | S2·C1 → **3** | S1·C0 → **1** |
+| Testing | S2·C1 → **3** | S2·C0 → **2** |
+
+Số học của cả hai lô đều đúng ma trận, **0 lỗi** — cái lệch nằm ở phán đoán dải. Nguyên nhân: thân
+issue sinh từ khuôn **không có gì để bám vào**, nên worker phải đoán. Đây là thứ chỉ lộ ra khi
+backlog có nhiều issue giống hệt nhau; bản chấm cũ (43 item, mỗi cái một nội dung riêng) không có
+cách nào phát hiện.
+
+**Phát hiện 2 — tổng phình gấp ~2,5 lần.** Hai lô đầu cho trung bình 2,79 điểm/issue, suy ra 142 lá
+≈ **397 SWP** so với 173 hiện tại. Phần lớn là điểm chấm cho **60 issue tài liệu mà LAB-4 đã giao
+xong**: skill chấm *việc được mô tả*, nó không có cách nào biết tài liệu ấy đã nằm trong bản nộp.
+
+**Vì sao không thể vừa chạy lại vừa giữ tổng.** Tôi đo thử trên hai màn, cho worker đọc cả ticket
+cha. Kết quả: thứ tự thì đúng tuyệt đối — **6/6 giai đoạn** của màn nặng đều cao hơn màn nhẹ, và
+`Coding — SCR-017` được 15 điểm vì worker đọc ra hai luật tương tranh từ cha. Nhưng tổng con so với
+điểm cha phình **5,3 lần** (SCR-003) và **6,0 lần** (SCR-017).
+
+Lý do nằm ở bản chất thang đo: **ma trận đo "khối việc này to đến đâu", không đo "phần này chiếm
+bao nhiêu của cha"**. Hỏi sáu câu riêng về cùng một màn là đếm màn đó sáu lần. Thang SWP thiết kế
+cho work item **độc lập**; sáu giai đoạn vòng đời của một màn thì **không độc lập**.
+
+Và chuẩn hoá ngược về điểm cha cũng không cứu được hết: sàn của ma trận là 1 điểm, sáu giai đoạn
+cần tối thiểu 6, mà story nhẹ nhất chỉ có 3. **Một màn 3 SWP không chia nổi cho 6 giai đoạn** nếu
+mọi giai đoạn đều phải mang điểm khác 0. Đây mới là lý do cứng khiến ba giai đoạn tài liệu phải
+mang 0 — lúc đầu tôi chỉ lý giải bằng "LAB-4 đã giao xong".
+
+**Kết luận: yêu cầu "skill chấm từng issue" và cấu trúc "6 sub-issue sinh từ khuôn mỗi màn" mâu
+thuẫn nhau.** Chấm từng cái thì lệch nhau và phình tổng; chấm theo khuôn thì không phải chấm từng cái.
+
+**Phần giữ lại được.** Ý tưởng cho worker đọc ticket cha thì đúng và đã dùng thật: thay vì công
+thức cứng, mỗi màn được skill chấm ba giai đoạn thực thi **kèm bối cảnh cha**, lấy kết quả làm
+trọng số tương đối rồi quy về đúng điểm story. **5/20 màn đổi** so với công thức cứng, và đổi đúng
+chỗ có đặc thù — chi tiết ở [`estimate.md`](estimate.md) §2.
+
+**Điều rút ra về cách tôi tư vấn.** Khi khuyến nghị chạy lại, tôi tính đến việc điểm sẽ đổi nhưng
+**không lường rằng 60 issue tài liệu sẽ bị chấm như việc chưa làm** — dù chính tôi đặt chúng thành
+0 điểm. Lẽ ra phải thấy trước. Thứ cứu được tình huống không phải trí nhớ mà là **dừng lại sau hai
+lô để đo, thay vì chạy hết năm lô rồi mới nhìn tổng**.
 
 ---
 

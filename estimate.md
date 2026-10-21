@@ -107,13 +107,41 @@ mục 5 so hai thang khác nhau. Bản không trừ AI cho **6,66 giờ/SWP** �
 
 - `giờ issue = SWP × 4,7`, làm tròn tới **0,5 giờ** — áp cho mọi work item **không phải** sub-issue
   giai đoạn
-- **Sub-issue giai đoạn của story dùng luật riêng:** giờ chia theo **tỷ lệ điểm trong story** rồi dồn
-  phần dư vào *Coding*, để tổng của sáu sub-issue bằng đúng giờ của story. Lý do: story là container
-  nên giờ của nó phải bằng tổng con; nếu áp `SWP × 4,7` cho từng sub-issue thì tổng lệch khỏi giờ
-  story vì làm tròn ba lần. **45/142 lá** rơi vào luật này, lệch tối đa 0,5 giờ mỗi lá so với công
-  thức chung — chênh do làm tròn, không phải chênh phạm vi
+- **Sub-issue giai đoạn của story dùng luật riêng** — xem khối ngay dưới
 - `giờ epic = tổng giờ issue con` — **không** tính lại từ SWP của epic, để tổng khớp đúng
 - Epic và issue cha là **container**: SWP là tổng con, không tra ma trận lần hai
+
+### Chia điểm cho sáu giai đoạn của một story
+
+Ba sub-issue giai đoạn 1–2 mang **0 SWP và trạng thái `Done`**: tài liệu của chúng chính là bản
+thiết kế LAB-4 đã nộp, việc đã xong nên không còn công để ước. Toàn bộ điểm của story chia cho ba
+giai đoạn thực thi.
+
+**Chia theo bằng chứng, không theo công thức cứng.** Với mỗi màn, skill chấm *Tạo testcase*,
+*Coding* và *Testing* **kèm nội dung ticket cha làm bối cảnh** — nhờ cha, nó biết màn ấy có bao
+nhiêu luật chặn, bao nhiêu trạng thái, có thao tác không hoàn tác hay không. Ba điểm thu được dùng
+làm **trọng số tương đối**, rồi quy về đúng điểm của story bằng **phương pháp dư lớn nhất**, mỗi
+giai đoạn tối thiểu 1 điểm, hoà thì ưu tiên *Coding*. Giờ chia theo tỷ lệ điểm mới, làm tròn 0,5,
+dồn phần dư vào giai đoạn nặng nhất.
+
+Vì sao phải quy về điểm cha thay vì lấy thẳng điểm skill chấm: ma trận đo **một khối việc độc lập
+to đến đâu**, không đo **phần này chiếm bao nhiêu của cha**. Hỏi sáu câu riêng về cùng một màn thì
+cộng lại thành đếm màn đó sáu lần — đo thử trên hai màn cho hệ số phình **5,3 và 6,0 lần**. Quy về
+điểm cha giữ đúng nghĩa "tổng backlog là tổng khối lượng thật".
+
+**Kết quả: 5/20 màn lệch khỏi công thức cứng `testcase 1 · testing 1 · coding = S−2`**, và lệch
+đúng chỗ có lý do:
+
+| Màn | Công thức cứng | Theo bằng chứng | Bằng chứng ở ticket cha |
+|---|---|---|---|
+| `SCR-012` | 1 · 3 · 1 | **2 · 2 · 1** | Màn duy nhất phân quyền tới **từng nút**, cộng ẩn nút theo ngày đã chốt sổ — ma trận ca lớn hơn hẳn |
+| `SCR-023` | 1 · 2 · 1 | **2 · 1 · 1** | Nhiều luật chặn ở biên: số lượng ≤ 0, và giao vượt nghĩa vụ phải chọn lý do |
+| `SCR-025` | 1 · 4 · 1 | **2 · 2 · 2** | Thao tác **không hoàn tác**: mỗi lần chạy lại phải dựng lại dữ liệu ngày nghiệp vụ, nên *Testing* nặng bất thường |
+| `SCR-001` | 1 · 3 · 1 | **2 · 2 · 1** | Vừa phải giấu phân biệt *sai mật khẩu* / *email không tồn tại*, vừa trả lý do riêng cho tài khoản bị chặn |
+| `SCR-041` | 1 · 3 · 1 | **2 · 2 · 1** | Ma trận vai trò × chức năng × mức quyền, cộng ràng buộc *sửa/duyệt cần quyền xem* — sinh rất nhiều tổ hợp ca |
+
+Mười lăm màn còn lại trùng công thức cứng. Đó là tin tốt chứ không phải công cốc: công thức cứng
+đúng cho màn thường, và chỉ sai ở đúng năm màn có đặc thù.
 
 ### Kiểm tỉnh táo
 
@@ -231,6 +259,7 @@ kiểm xong, Agent ghi bằng `gh project item-edit` — cách làm kể ở [`A
 
 | Ngày | Nội dung |
 |---|---|
+| 2026-10-21 | Chia điểm sáu giai đoạn theo bằng chứng ticket cha thay vì công thức cứng; 5/20 màn đổi, tổng không đổi |
 | 2026-10-21 | Cập nhật số item sau khi dựng lại theo vòng đời story; tổng SWP và giờ không đổi |
 | 2026-10-18 | Chấm SWP lần đầu, người kiểm 5 mẫu + 2 chỗ ngoài mẫu, chốt hệ số 4,7 giờ/SWP |
 | 2026-10-18 | Mục 4 so theo từng epic thay vì chỉ so tổng — số LAB-1 tách theo nhóm màn |
