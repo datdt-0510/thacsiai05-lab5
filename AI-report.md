@@ -83,6 +83,18 @@ Hai đường:
 **Chọn đường B.** Nhờ vậy mục 4 của `estimate.md` mới so ngược được với LAB-1 một cách có nghĩa —
 chênh 1,0% và chênh đó truy được về đúng hai chỗ làm tròn, không phải chênh về phạm vi.
 
+**Cách ra lệnh.** Không hỏi AI "dự án này mất bao nhiêu giờ" — hỏi thế là nhận một con số không
+truy được nguồn. Lệnh chia làm ba bước, mỗi bước buộc phải dẫn nguồn:
+
+1. *"Mở bảng dự toán LAB-1. Liệt kê đúng những dòng thuộc phạm vi backlog — 20 màn và 4 dòng xuyên
+   suốt. **Trích số từ file**, không nhớ, không ước."*
+2. *"Áp đúng bộ hệ số mà chính LAB-1 đã khai, không tự đặt hệ số mới. In ra từng bước trung gian
+   để tôi kiểm."*
+3. *"Chia cho tổng SWP. Trước khi tính, hãy nói dải giờ/SWP mà anh cho là hợp lý — **đặt dải trước
+   rồi mới tính**, để không tự bẻ dải cho vừa kết quả."*
+
+Bước 3 là chỗ quan trọng nhất: ép khai dải kỳ vọng **trước** khi biết kết quả.
+
 **Chốt tử số bằng cách mở file ra đọc.** Lệnh tự đặt cho mình ở bước này là *"không quyết bằng trí
 nhớ"*, và đó không phải lời sáo — xem mục 2.3, hai con số tôi nhớ đều sai.
 
@@ -135,6 +147,13 @@ gh project item-list 2 --owner datdt-0510 --format json --limit 300
 Phép kiểm cuối bắt được một lỗi thật — xem mục 2.4.
 
 ### 1.5 Báo cáo tiến độ — trích số, không gõ số
+
+**Cách ra lệnh.** Lệnh có một mệnh lệnh cấm đi kèm: *"Viết báo cáo tiến độ Sprint 1. **Mọi con số
+phải trích từ Project bằng lệnh, không được gõ tay và không được lấy từ phần đã viết ở trên.** Chỗ
+nào Project không có dữ liệu thì nói thẳng là không có, đừng dựng số cho đủ bảng."*
+
+Chính vế cấm thứ hai bắt được chỗ hở: bảng burndown cần biết **ngày nào đóng issue nào**, mà Project
+chỉ giữ trạng thái hiện tại. Nếu không có lệnh cấm đó, tôi đã viết cột ngày ra như thể nó là số đo.
 
 Sau khi xếp Sprint 1 và cập nhật trạng thái, **không** viết báo cáo từ trí nhớ. Đọc ngược từ Project:
 
@@ -369,7 +388,7 @@ issue sinh từ khuôn **không có gì để bám vào**, nên worker phải đ
 backlog có nhiều issue giống hệt nhau; bản chấm cũ (43 item, mỗi cái một nội dung riêng) không có
 cách nào phát hiện.
 
-**Phát hiện 2 — tổng phình gấp ~2,5 lần.** Hai lô đầu cho trung bình 2,79 điểm/issue, suy ra 142 lá
+**Phát hiện 2 — tổng phình gấp ~2,3 lần.** Hai lô đầu cho trung bình 2,79 điểm/issue, suy ra 142 lá
 ≈ **397 SWP** so với 173 hiện tại. Phần lớn là điểm chấm cho **60 issue tài liệu mà LAB-4 đã giao
 xong**: skill chấm *việc được mô tả*, nó không có cách nào biết tài liệu ấy đã nằm trong bản nộp.
 

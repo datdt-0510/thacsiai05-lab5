@@ -25,7 +25,12 @@ chưa xong, và lúc đó ngày đã khoá vẫn ghi được qua tầng còn h�
 để bịt. Đánh đổi: issue này sẽ khó theo dõi hơn các issue khác, và nếu làm thật thì nên chia theo
 **bài kiểm** chứ không theo tầng — mỗi bài kiểm một sub-issue, cả hai tầng vẫn phải xanh cùng lúc.
 
-Ngoài #51, issue lá nặng nhất là 6 SWP ≈ 4 ngày; phần lớn nằm ở 3–4 SWP ≈ 2–3 ngày, đúng luật.
+Ngoài #51 còn **một nhóm nhỏ chạm mép**: issue lá 5–6 SWP ≈ 3,4–4 ngày, tức nhỉnh hơn mép trên của
+luật. Giữ nguyên vì chúng là **một màn hoặc một luật nghiệp vụ liền khối** — chia nhỏ hơn thì mảnh
+không còn nghiệm thu độc lập được. Phần lớn backlog nằm ở 3–4 SWP ≈ 2–3 ngày, đúng luật.
+
+Nói cho sòng phẳng: luật "1–3 ngày" nên đọc là **mục tiêu**, không phải ngưỡng cứng. Ngưỡng cứng duy
+nhất tôi giữ là *kiểm được bằng một câu*.
 
 ### Hai kiểu tách sub-issue
 

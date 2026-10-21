@@ -168,7 +168,9 @@ Cột *Issue mức 1* đếm **con trực tiếp của epic**, không đếm sub
 **142 work item mang điểm**. Điểm của story là tổng của sáu con nên tổng cột SWP không đổi.
 
 Hai epic nặng nhất — Nền tảng và Chốt sổ — chiếm **43%** tổng điểm. Hợp lý: một bên là móng, một
-bên mang toàn bộ ràng buộc nghiệp vụ đặc thù của Product A.
+bên mang ràng buộc **nặng nhất** là `完納奨励金` với 5 tham số tính tiền. Các ràng buộc đặc thù khác
+(`許可`/`承認`, `目利き`, `セリ`, lô chưa thẩm định, sổ giao hàng cộng theo hướng) nằm rải ở bốn epic
+còn lại — xem [`task-breakdown.md`](task-breakdown.md) §3.
 
 ---
 
@@ -184,8 +186,8 @@ mỗi epic bám, rồi áp **cùng chuỗi hệ số ở mục 2** để hai c�
 | [#5](https://github.com/datdt-0510/thacsiai05-lab5/issues/5) Tiếp nhận lô | 97,5 h | 75,5 h | **−23%** | LAB-1 cho SCR-013 tới 5,5 MD implement. Thiết kế LAB-4 chốt màn này là form nhập một bảng, phần nặng nằm ở `目利き` mà `目利き` lại là **yêu cầu phủ định** — nghiệm thu bằng sự vắng mặt của chấm điểm tự động, rẻ hơn dựng tính năng |
 | [#6](https://github.com/datdt-0510/thacsiai05-lab5/issues/6) Giao dịch | 118,5 h | 89,5 h | **−24%** | Cùng lý do: `セリ` không nhận dạng ảnh ([#39](https://github.com/datdt-0510/thacsiai05-lab5/issues/39)) là yêu cầu phủ định. LAB-1 ước SCR-016 như một bảng điều khiển đầy đủ; LAB-4 chốt phạm vi hẹp hơn |
 | [#7](https://github.com/datdt-0510/thacsiai05-lab5/issues/7) Giao hàng | 52,9 h | 52,0 h | **−2%** | Khớp. Hai màn thẳng, không ràng buộc nào ngoài luật cộng theo hướng — mà luật đó đã tách thành [#43](https://github.com/datdt-0510/thacsiai05-lab5/issues/43) và vẫn nằm trong epic |
-| [#8](https://github.com/datdt-0510/thacsiai05-lab5/issues/8) Chốt sổ & thưởng | 118,5 h | 188,0 h | **+59%** | **Chênh lớn nhất, và là chênh vì ràng buộc đặc thù.** LAB-1 không có dòng riêng cho `BR-INC-01`: 5 tham số tính thưởng nằm lẫn trong SCR-028 (4,00 MD). Break ra thành [#47](https://github.com/datdt-0510/thacsiai05-lab5/issues/47) +3 con = 11 SWP, cộng [#49](https://github.com/datdt-0510/thacsiai05-lab5/issues/49) và [#50](https://github.com/datdt-0510/thacsiai05-lab5/issues/50) là hai chỗ hở LAB-4 tự khai |
-| [#9](https://github.com/datdt-0510/thacsiai05-lab5/issues/9) Quản trị hệ thống | 142,7 h | 122,5 h | **−14%** | LAB-1 gộp cả di trú dữ liệu và UAT vào nhóm này; backlog chỉ nhận 5 màn quản trị, phần còn lại ngoài phạm vi |
+| [#8](https://github.com/datdt-0510/thacsiai05-lab5/issues/8) Chốt sổ & thưởng | 118,5 h | 188,0 h | **+59%** | **Chênh lớn nhất, và là chênh vì ràng buộc đặc thù.** LAB-1 không có dòng riêng cho `BR-INC-01`: 5 tham số tính thưởng nằm lẫn trong SCR-028 (4,00 MD). Break ra thành [#47](https://github.com/datdt-0510/thacsiai05-lab5/issues/47) cùng **ba issue con** = 11 SWP, trong đó [#49](https://github.com/datdt-0510/thacsiai05-lab5/issues/49) và [#50](https://github.com/datdt-0510/thacsiai05-lab5/issues/50) chính là hai chỗ hở LAB-4 tự khai |
+| [#9](https://github.com/datdt-0510/thacsiai05-lab5/issues/9) Quản trị hệ thống | 142,7 h | 122,5 h | **−14%** | Cột LAB-1 ở đây **chỉ gồm 5 màn quản trị trong phạm vi**, không gồm di trú dữ liệu và UAT — hai thứ LAB-1 xếp cùng nhóm nhưng nằm ngoài backlog. Chênh −14% là do LAB-1 ước 5 màn đó rộng hơn thiết kế LAB-4 chốt |
 | **Tổng phạm vi backlog** | **807,1 h** | **815,5 h** | **+1,0%** | Chênh do **làm tròn** hệ số 4,665 → 4,7 và làm tròn giờ từng issue tới 0,5. Không phải chênh về phạm vi |
 
 > **Về ô tổng 807,1 h.** Cộng bảy số đã làm tròn ở cột LAB-1 ra **807,2**, lệch 0,1 so với ô tổng.

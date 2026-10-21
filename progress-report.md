@@ -86,9 +86,10 @@ trước khi có bất kỳ vấn đề nào. Đây là lỗi lập kế hoạch
 
 **Phẳng hẳn từ ngày 7.** Ba ngày cuối không đóng được việc nào. Không phải vì đội chậm: hai issue
 dừng vì **thiếu một quyết định chưa ai chốt được**, còn issue thứ ba
-([#19](https://github.com/datdt-0510/thacsiai05-lab5/issues/19) lớp từ điển) hoá ra nặng hơn
-ước — ràng buộc khoá giữa hai bản ngôn ngữ ở mức kiểu cần dựng thêm một tầng kiểu riêng mà ước
-lượng ban đầu không tính tới.
+([#19](https://github.com/datdt-0510/thacsiai05-lab5/issues/19) lớp từ điển) hoá ra nặng hơn ước. Đáng
+nói là **bản chấm điểm đã nhận ra** ràng buộc khoá giữa hai bản ngôn ngữ ở mức kiểu — đó chính là
+căn cứ cho `Complexity 2`. Thứ vượt dự liệu không phải bản chất công việc mà là **số vòng sửa**:
+mỗi lần lệch khoá là một lỗi biên dịch, và dọn hết chúng tốn hơn một dải điểm.
 
 Hai chỗ chặn khác hẳn nhau, và điều đó quyết định cách xử lý:
 
@@ -114,7 +115,7 @@ hậu quả của nó rơi vào sprint sau chứ không phải sprint này.
 | **Khách chưa trả lời: 買出人 (`ACT-04`) cần loại tư cách nào.** Hỏi từ ngày 2, chưa có đáp | [#29](https://github.com/datdt-0510/thacsiai05-lab5/issues/29) | Chặn [#28](https://github.com/datdt-0510/thacsiai05-lab5/issues/28) kiểm tư cách phân nhánh → chặn [#35](https://github.com/datdt-0510/thacsiai05-lab5/issues/35) màn tạo 相対取引. Đây là **luồng chính của chợ**, nên trễ ở đây trễ cả epic Giao dịch | Gửi lại câu hỏi kèm **hai phương án đề xuất** và hạn trả lời. **Quá hạn thì không tự chọn** — đây là luật tư cách tham gia thị trường, đoán sai là làm sai luật chợ, và [`PREMISE.md`](PREMISE.md) §2 đã ghi rõ chỗ này không được phép giả định. Quá hạn thì nâng lên người quyết của khách kèm bảng chi phí chờ (đang chặn 2 issue, kéo theo epic giao dịch), và **tách phần không phụ thuộc `ACT-04` ra làm trước** để sprint không đứng im | Lê Văn BrSE · gửi lại 2026-10-20, hạn khách trả lời 2026-10-24 |
 | **Chưa chốt cách kiểm "khoá `service_role` không lọt vào gói trình duyệt".** Phát hiện khi làm: định nghĩa xong đòi điều này nhưng không nêu kiểm bằng gì | [#14](https://github.com/datdt-0510/thacsiai05-lab5/issues/14) | Chặn phần còn lại của epic [#3](https://github.com/datdt-0510/thacsiai05-lab5/issues/3) Nền tảng. Mọi epic khác dựng trên nó | Chốt một cách kiểm cụ thể (quét gói sau khi build, bài kiểm đỏ nếu thấy chuỗi khoá) rồi bổ sung vào định nghĩa xong của issue | Trần Thị Dev · 2026-10-21 |
 | **Cam kết vượt sức chứa 38%.** Lỗi lập kế hoạch, lặp lại thì mọi sprint đều trễ | — | Mọi mốc phía sau trượt dần, và burndown mất giá trị cảnh báo vì luôn đỏ | Sprint 2 cam kết theo **vận tốc quan sát được ở Sprint 1 là 22 SWP**, không theo sức chứa lý thuyết. Giữ 15 SWP trôi sang cộng tối đa 7 SWP mới | Phạm Thị PM · khi lập Sprint 2, 2026-10-19 |
-| **Epic nặng nhất chưa chạm.** [#8](https://github.com/datdt-0510/thacsiai05-lab5/issues/8) Chốt sổ & thưởng nặng 40 SWP, chứa toàn bộ ràng buộc đặc thù `BR-INC-01` (5 tham số) | [#47](https://github.com/datdt-0510/thacsiai05-lab5/issues/47) và 3 issue con | Để dồn về cuối thì rủi ro dồn về cuối, đúng lúc không còn thời gian xoay | Đưa [#48](https://github.com/datdt-0510/thacsiai05-lab5/issues/48) (tách ba nhóm khoản thanh toán) vào Sprint 2 để chạm sớm phần khó nhất, kể cả khi epic chưa tới lượt | Phạm Thị PM · Sprint 2 |
+| **Epic nặng nhất chưa chạm.** [#8](https://github.com/datdt-0510/thacsiai05-lab5/issues/8) Chốt sổ & thưởng nặng 40 SWP, chứa toàn bộ ràng buộc đặc thù `BR-INC-01` (5 tham số) | [#47](https://github.com/datdt-0510/thacsiai05-lab5/issues/47) và 3 issue con | Mốc nghiệm thu epic [#8](https://github.com/datdt-0510/thacsiai05-lab5/issues/8) — 40 SWP ≈ 188 giờ, tức **hơn một sprint rưỡi**. Dồn về cuối thì nếu `BR-INC-01` sai, không còn sprint nào để sửa trước khi giao | Đưa [#48](https://github.com/datdt-0510/thacsiai05-lab5/issues/48) (tách ba nhóm khoản thanh toán) vào Sprint 2 để chạm sớm phần khó nhất, kể cả khi epic chưa tới lượt | Phạm Thị PM · Sprint 2 |
 
 ---
 
