@@ -191,8 +191,8 @@ kiểm xong, Agent ghi bằng `gh project item-edit` — cách làm kể ở [`A
 
 | Kiểm sau khi ghi | Kết quả |
 |---|---|
-| 55 item có trường `SWP` | đủ, 0 thiếu |
-| 55 item có trường `Giờ ước lượng` | đủ, 0 thiếu |
+| 173 item có trường `SWP` | đủ, 0 thiếu |
+| 173 item có trường `Giờ ước lượng` | đủ, 0 thiếu |
 | Đối chiếu từng item với bảng đã chốt | 0 lệch |
 | Tổng SWP của 7 epic | 173 — khớp tổng 43 lá |
 | Tổng giờ của 7 epic | 815,5 — khớp tổng 43 lá |
@@ -209,6 +209,7 @@ kiểm xong, Agent ghi bằng `gh project item-edit` — cách làm kể ở [`A
 
 | Ngày | Nội dung |
 |---|---|
+| 2026-10-21 | Cập nhật số item sau khi dựng lại theo vòng đời story; tổng SWP và giờ không đổi |
 | 2026-10-18 | Chấm SWP lần đầu, người kiểm 5 mẫu + 2 chỗ ngoài mẫu, chốt hệ số 4,7 giờ/SWP |
 | 2026-10-18 | Mục 4 so theo từng epic thay vì chỉ so tổng — số LAB-1 tách theo nhóm màn |
 | 2026-10-20 | Bỏ tham chiếu ô và tên sheet của bảng dự toán nội bộ; giữ nguyên hệ số và phép tính |

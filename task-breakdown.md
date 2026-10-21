@@ -1,7 +1,7 @@
 # Break task — từ detail design LAB-4 thành backlog
 
 **Nguồn:** bộ thiết kế LAB-4 đã nộp, cộng/trừ những gì khai ở [`PREMISE.md`](PREMISE.md).
-**Kết quả:** 7 epic · 35 issue · 13 sub-issue = **55 item** trên
+**Kết quả:** 7 epic · 35 issue (trong đó **20 là story màn hình**) · 131 sub-issue = **173 item** trên
 [GitHub Project](https://github.com/users/datdt-0510/projects/2).
 
 ---
@@ -27,16 +27,47 @@ chưa xong, và lúc đó ngày đã khoá vẫn ghi được qua tầng còn h�
 
 Ngoài #51, issue lá nặng nhất là 6 SWP ≈ 4 ngày; phần lớn nằm ở 3–4 SWP ≈ 2–3 ngày, đúng luật.
 
-### Khi nào tách sub-issue
+### Hai kiểu tách sub-issue
+
+Backlog này dùng **hai kiểu cho hai loại việc khác nhau**. Lẫn chúng vào nhau là chỗ dễ sai nhất.
+
+#### Kiểu 1 — story màn hình: tách theo giai đoạn vòng đời
+
+Mỗi màn là một **story**, dưới nó đủ **sáu** sub-issue theo đúng quy trình quản lý yêu cầu:
+
+| Giai đoạn | Sub-issue | Đầu ra |
+|---|---|---|
+| 1 · Phân tích yêu cầu | Tạo tài liệu Requirement | Tài liệu yêu cầu được duyệt |
+| 2 · Đặc tả yêu cầu | Tạo tài liệu Screen Specification | Đặc tả màn hình được duyệt |
+| 2 · Đặc tả yêu cầu | Tạo tài liệu API Design | Đặc tả API được duyệt |
+| 3 · Thực thi | Tạo testcase | Bộ testcase |
+| 3 · Thực thi | Coding | Mã nguồn |
+| 3 · Thực thi | Testing | Kết quả kiểm thử |
+
+**Mỗi tài liệu một sub-issue riêng.** Testcase, coding và testing bám vào đúng cặp đặc tả của màn đó.
+
+Ba sub-issue giai đoạn 1–2 mang **0 SWP và trạng thái `Done`**: tài liệu của chúng **chính là bản
+thiết kế chi tiết LAB-4 đã nộp**, việc đã làm xong nên không còn công để ước. Chúng vẫn tồn tại
+thành issue để vòng đời đọc được đủ sáu bước, chứ không phải để tính điểm. Toàn bộ điểm của story
+nằm ở ba sub-issue giai đoạn 3.
+
+#### Kiểu 2 — hạng mục kỹ thuật và ràng buộc nghiệp vụ: tách theo khối việc
 
 Tách khi issue rơi vào một trong hai:
 
 - **Đụng từ hai tầng trở lên** — giao diện + API + database. Ví dụ [#10](https://github.com/datdt-0510/thacsiai05-lab5/issues/10) dựng 17 bảng tách theo ba nhóm bảng.
 - **Có nhánh luật riêng cần kiểm riêng** — ví dụ [#25](https://github.com/datdt-0510/thacsiai05-lab5/issues/25) tách 許可 và 承認 thành ba nhánh: cấp 許可, cấp 承認, và kiểm phân nhánh lúc giao dịch.
 
-**Không** tách sub-issue chỉ để chia theo tầng kỹ thuật. Chia "dựng form / viết endpoint / viết
-test" cho mọi màn làm backlog phồng gấp đôi mà không ai theo dõi được rõ hơn — và một sprint đầy
-mảnh vụn thì burndown chỉ còn là đồ thị đẹp.
+#### Vì sao không áp một kiểu cho tất cả
+
+**Không áp kiểu 1 cho hạng mục kỹ thuật.** "Tạo tài liệu Screen Specification" vô nghĩa với một
+issue như *Bật RLS deny-all trên 17 bảng* — nó không có màn nào. Chính luật của quy trình nói *mỗi
+**tài liệu** một sub-issue*, nên không có tài liệu thì không sinh sub-issue. Áp máy móc sẽ đẻ ra
+hàng chục issue rỗng và burndown đầy mảnh vụn.
+
+**Không áp kiểu 2 cho story.** Chia một màn theo khối việc thì mất dấu vết giai đoạn: nhìn board
+không biết màn đó đã có đặc tả chưa, đã có testcase chưa, hay chỉ mới code xong. Vòng đời sáu bước
+làm được đúng việc đó.
 
 ### Định nghĩa xong
 
@@ -58,8 +89,11 @@ Dùng **quan hệ cha–con thật của GitHub** (`addSubIssue`), không dùng 
 Lý do: ô đánh dấu không đồng bộ với trạng thái issue con, nên tiến độ đọc trên Project sẽ sai.
 
 - **Epic** — issue gắn nhãn `epic`, tiêu đề mở đầu `[EPIC]`. Không tự làm được, chỉ gom.
-- **Issue** — con trực tiếp của epic. Đây là đơn vị xếp sprint và chấm SWP.
-- **Sub-issue** — con của issue. Chấm SWP riêng; điểm của cha là **tổng** của con.
+- **Story / issue** — con trực tiếp của epic. Hai mươi màn hình là **story**, mỗi story có đủ sáu
+  sub-issue vòng đời. Phần còn lại là hạng mục kỹ thuật và ràng buộc nghiệp vụ, chỉ tách sub-issue
+  khi cần (kiểu 2 ở trên).
+- **Sub-issue** — con của story hoặc của issue. Chấm SWP riêng; điểm của cha là **tổng** của con,
+  nên story không mang điểm của riêng nó.
 
 Đã thử quan hệ cha–con trên một cặp issue nháp trước khi tạo hàng loạt, xác nhận giao diện hiện
 đúng mục Sub-issues rồi mới chạy.
@@ -143,5 +177,6 @@ vào một nhãn không đúng.
 
 | Ngày | Nội dung |
 |---|---|
+| 2026-10-21 | Dựng lại theo vòng đời story: mỗi màn 6 sub-issue, 55 → 173 item |
 | 2026-10-18 | Break lần đầu: 7 epic · 35 issue · 13 sub-issue |
 | 2026-10-18 | Thêm cột "phần spec chưa thành issue" vào mục 2 · đối chiếu cột Xử lý với 4 nhãn đề quy định · khai #51 là ngoại lệ độ hạt · sửa "ba" thành "hai" yêu cầu phủ định |

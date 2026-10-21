@@ -51,7 +51,7 @@ và là một trong các rủi ro trễ ở `progress-report.md`.
 |---|---|---|---|
 | LAB-4 không gom ADR, thiết kế CSDL và tài liệu kiến trúc vào thư mục feature nào | (a) để rải trong `system-design/`, mỗi màn tự gánh phần móng của mình · (b) gom thành một epic riêng. LAB-4 **không chọn** vì nó không bàn tới backlog | Thêm **epic thứ 7: Nền tảng** ([#3](https://github.com/datdt-0510/thacsiai05-lab5/issues/3)) | Không có lược đồ dữ liệu, cổng phiên, ma trận quyền và lớp từ điển thì không màn nào dựng được. Để chúng rải ra là backlog có 20 màn mà không ai nhận phần móng |
 | Phạm vi backlog: break bao nhiêu chức năng | (a) break cả 31 chức năng nêu trong hồ sơ · (b) chỉ break 15 chức năng có detail design. LAB-4 `PREMISE.md` đã thu còn 15 nhưng **không nói** backlog phải theo con số nào | Bám đúng 15 chức năng / 20 màn mà LAB-4 có thiết kế chi tiết | 25 màn còn lại **không có detail design để break**. Break chúng là bịa việc, và đề nói nguồn break là detail design LAB-4 |
-| Độ hạt khi chia | (a) một issue mỗi màn · (b) một issue mỗi endpoint · (c) một issue mỗi màn, tách sub-issue khi màn gánh ràng buộc riêng. LAB-4 **không nói** về độ hạt backlog | 7 epic · 35 issue · 13 sub-issue = **55 item** | Xem `task-breakdown.md` §1 |
+| Độ hạt khi chia | (a) một issue mỗi màn · (b) một issue mỗi endpoint · (c) **mỗi màn là một story, dưới nó sáu sub-issue theo giai đoạn vòng đời** — theo quy trình quản lý yêu cầu của khoá. LAB-4 **không nói** về độ hạt backlog | **(c)** · 7 epic · 35 issue (20 story màn hình) · 131 sub-issue = **173 item** | Giai đoạn 1–2 (requirement, đặc tả màn, đặc tả API) **chính là sản phẩm LAB-4**, nên mang 0 SWP và trạng thái `Done`; điểm của story dồn hết vào testcase · coding · testing. Hạng mục kỹ thuật và ràng buộc nghiệp vụ **không** áp khuôn này vì chúng không có màn, nên không có đặc tả màn để sinh sub-issue — xem [`task-breakdown.md`](task-breakdown.md) §1 |
 
 ---
 
@@ -61,4 +61,5 @@ và là một trong các rủi ro trễ ở `progress-report.md`.
 |---|---|
 | 2026-10-18 | Khởi tạo khi break backlog từ bản LAB-4 đã nộp |
 | 2026-10-20 | Bỏ tham chiếu sheet/ô của bảng dự toán nội bộ |
+| 2026-10-21 | Chốt lại độ hạt: mỗi màn là story có 6 sub-issue theo vòng đời |
 | 2026-10-18 | Mục 3 nêu rõ các phương án đã cân nhắc thay vì chỉ nêu hiện trạng — theo review chéo |

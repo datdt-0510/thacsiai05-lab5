@@ -20,7 +20,7 @@ tính là khác biệt ở đây.
 | **Thay đổi thiết kế so với LAB-4** | **Không có.** Break hết 20 màn, 30 endpoint, 17 bảng và 8 ADR mà không chỗ nào buộc phải sửa thiết kế. Chi tiết ở [`PREMISE.md`](PREMISE.md) §1 |
 | **Giả định bổ sung** | 4, khai ở [`PREMISE.md`](PREMISE.md) §2. Một trong đó là **giả định sai đã tự sửa** — xem `estimate.md` §4 |
 | **Chỗ không được phép đoán** | 1 — tư cách của 買出人 (`ACT-04`). LAB-4 ghi thẳng là phải hỏi khách, nên thành issue [#29](https://github.com/datdt-0510/thacsiai05-lab5/issues/29) gắn nhãn `cần-khách-trả-lời` chứ không thành giả định |
-| **Quy mô backlog** | **7 epic · 35 issue · 13 sub-issue = 55 item** trên Project |
+| **Quy mô backlog** | **7 epic · 35 issue · 131 sub-issue = 173 item** trên Project. Hai mươi màn hình là **story**, mỗi story có đủ 6 sub-issue theo vòng đời (requirement → đặc tả màn → đặc tả API → testcase → coding → testing) |
 | **Tổng ước lượng** | **173 SWP ≈ 815,5 giờ ≈ 5,83 người-tháng** (hệ số 4,7 giờ/SWP, dẫn xuất từ dự toán LAB-1). *SWP = Standard Work Point — điểm công chuẩn, chấm theo ma trận `Scope × Complexity`; xem [`estimate.md`](estimate.md)* |
 | **Sprint đã chạy** | `Sprint 1` — 2026-10-05 → 2026-10-18, giả lập. Hoàn thành 22/37 SWP = 59%, có 2 issue `Blocked` với nguyên nhân nối về chỗ hở spec có thật. Báo cáo ở [`progress-report.md`](progress-report.md) |
 
@@ -45,7 +45,7 @@ lược đồ dữ liệu, cổng phiên, ma trận quyền và lớp từ đi�
 | [#2 Sprint 1 — theo trạng thái](https://github.com/users/datdt-0510/projects/2/views/2) | Bảng thẻ, lọc `sprint:"Sprint 1"` — 12 item của sprint xếp theo trạng thái. **Đây là chỗ xem tiến độ sprint** |
 | [#5 Tiến độ theo sprint](https://github.com/users/datdt-0510/projects/2/views/5) | Bảng, lọc `-no:sprint` — mọi item đã xếp sprint, kèm cột Sprint, Trạng thái, SWP, Giờ. Sprint sau thêm vào là tự hiện |
 | [#3 Backlog theo epic](https://github.com/users/datdt-0510/projects/2/views/3) | Toàn bộ backlog kèm nhãn epic |
-| [#1 Tất cả 55 item](https://github.com/users/datdt-0510/projects/2/views/1) | Bảng trần, không lọc |
+| [#1 Tất cả item](https://github.com/users/datdt-0510/projects/2/views/1) | Bảng trần, không lọc |
 
 Biểu đồ dựng sẵn ở tab [Insights](https://github.com/users/datdt-0510/projects/2/insights). Lưu ý:
 Insights chỉ vẽ từ **trạng thái hiện tại**, GitHub Project không lưu lịch sử trạng thái theo ngày —
@@ -116,5 +116,6 @@ Phần spec **chưa** thành issue (16/31 tài liệu yêu cầu, 7 khuôn tài 
 
 | Ngày | Nội dung |
 |---|---|
+| 2026-10-21 | Cập nhật quy mô backlog sau khi dựng lại theo vòng đời story |
 | 2026-10-18 | Khởi tạo bộ nộp LAB-5 |
 | 2026-10-19 | Thêm status update Sprint 1 và 2 view trên Project |

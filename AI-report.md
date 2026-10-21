@@ -127,7 +127,7 @@ gh project item-list 2 --owner datdt-0510 --format json --limit 100
 
 | Kiểm | Kết quả |
 |---|---|
-| 55 item có `SWP`, 55 item có `Giờ ước lượng` | đủ, 0 thiếu |
+| 173 item có `SWP`, 173 item có `Giờ ước lượng` | đủ, 0 thiếu |
 | Đối chiếu từng item với bảng đã chốt | 0 lệch |
 | Tổng SWP của 7 epic = tổng của 43 lá | 173 = 173 |
 | Tổng giờ của 7 epic = tổng của 43 lá | 815,5 = 815,5 |
@@ -158,7 +158,7 @@ Trước khi commit còn chạy lại một lượt nữa để đối chiếu v
 
 ## 2. Người review ở đâu, bắt được gì
 
-### 2.1 Năm chặng
+### 2.1 Sáu chặng
 
 | Chặng | Người kiểm cái gì |
 |---|---|
@@ -167,6 +167,7 @@ Trước khi commit còn chạy lại một lượt nữa để đối chiếu v
 | Ghi lên Project | Đọc ngược JSON, đối chiếu máy với máy |
 | Viết báo cáo | Trích lại số từ Project lần hai, so với bản đã viết |
 | Review chéo | Đưa cả bộ nộp cho một mô hình khác đọc với lệnh chỉ tìm lỗi — xem §2.7 |
+| Đối chiếu quy trình | So cấu trúc ticket với sơ đồ vòng đời story của khoá — xem §2.8 |
 
 ### 2.2 Chấm SWP — kiểm 7 issue, đổi điểm 5, cả 5 đều do AI chấm thấp
 
@@ -297,6 +298,55 @@ Hai lỗi tôi tự tìm ra trước khi Codex trả lời — đơn vị `115,3
 và chuỗi hệ số — đều tìm được bằng cách **tự chạy lại phép tính** thay vì đọc lại câu chữ. Hai cách
 soát bắt hai loại lỗi khác nhau; bỏ cách nào cũng sót.
 
+
+### 2.8 Đối chiếu với quy trình của khoá — và chỗ tôi đi lệch
+
+Khi đã coi là xong, người hướng dẫn đưa sơ đồ *"Vòng đời một Story qua các sub-issue"* để đối chiếu.
+Hoá ra tôi hiểu sai **ý nghĩa của sub-issue**.
+
+| | Sơ đồ quy định | Tôi đã dựng |
+|---|---|---|
+| Đơn vị cha | **Story** — một chức năng người dùng thấy được | Epic theo miền nghiệp vụ |
+| Sub-issue là gì | **Giai đoạn vòng đời**: requirement → đặc tả màn → đặc tả API → testcase → coding → testing | **Khối việc** chia nhỏ cùng loại |
+| Số lượng | 6 cho mỗi story | 0 với 30/35 issue; 2–3 với 5 issue còn lại |
+| Testcase, testing | Mỗi thứ một sub-issue riêng | **Không có issue nào** |
+
+Kiểm bằng số thay vì cảm giác: lọc 55 issue theo `testcase|kiểm thử|testing|tài liệu|đặc tả` →
+**không khớp cái nào**. Bài kiểm chỉ nằm thành dòng trong mục "Định nghĩa xong" của 13 issue.
+
+**Chỗ nặng nhất không phải thiếu, mà là tôi đã viết hẳn lý lẽ bác lại.** `task-breakdown.md` của
+tôi có câu: *"**Không** tách sub-issue chỉ để chia theo tầng kỹ thuật… làm backlog phồng gấp đôi"*.
+Tức là tôi không bỏ sót quy ước — tôi **chọn ngược lại và ghi lý do vào tài liệu**. Một quy ước của
+tổ chức thì không phải chỗ để tôi tự quyết khác rồi biện minh; muốn khác thì phải hỏi trước.
+
+**Đã dựng lại:** 20 màn thành **story**, mỗi story đủ 6 sub-issue. Backlog từ 55 lên **173 item**.
+
+Hai quyết định phải chốt trước khi chạy, vì sai là phải làm lại từ đầu:
+
+1. **Story lấy đến đâu.** Chỉ 20 màn. Mười lăm hạng mục kỹ thuật (RLS, lược đồ dữ liệu, 完納奨励金…)
+   **không** áp khuôn 6 giai đoạn — chúng không có màn, nên không có "đặc tả màn hình" để sinh
+   sub-issue. Chính luật *"mỗi tài liệu một sub-issue"* dẫn tới kết luận đó.
+2. **Điểm xử thế nào.** Ba sub-issue giai đoạn 1–2 mang **0 SWP và `Done`**, vì tài liệu của chúng
+   chính là LAB-4 đã nộp — việc đã xong, không còn công để ước. Điểm của story chia cho testcase ·
+   coding · testing theo công thức `testcase 1 · testing 1 · coding = S − 2`, giờ chia theo tỷ lệ
+   điểm rồi dồn phần dư vào coding. Nhờ vậy **tổng giữ nguyên 173 SWP / 815,5 giờ**, không phải
+   tính lại hệ số 4,7 giờ/SWP hay viết lại mục so sánh với LAB-1.
+
+Kiểm sau khi chạy: 20/20 story có điểm cha **đúng bằng** tổng con, cả SWP lẫn giờ; 0 trường thiếu
+trên 173 item.
+
+**Một chỗ vướng và cách gỡ.** [#35](https://github.com/datdt-0510/thacsiai05-lab5/issues/35) SCR-017
+đã có sẵn 2 sub-issue, và 6 SWP của nó **chính là tổng hai cái đó** — màn tự nó không mang điểm.
+Thêm 6 sub-issue vòng đời nữa thì hoặc đội tổng lên 179, hoặc bỏ đói testcase và testing. Đã gộp
+nội dung hai issue đó thành hai dòng trong "Định nghĩa xong" của *Coding — SCR-017* rồi xoá chúng.
+Giữ được cả luật nghiệp vụ lẫn tổng điểm.
+
+**Một cái bẫy đáng ghi.** Bộ nạp Project báo *"thêm mới 0 · đã có sẵn 120"* rồi dừng, trong khi cả
+120 item **không có trường nào**. Nguyên nhân: Project bật workflow `Auto-add sub-issues to project`,
+nên `addSubIssue` vừa chạy là item tự vào board, và điều kiện "đã có trên board thì bỏ qua" của tôi
+hiểu nhầm thành "đã xử lý xong". Bài học: **sự hiện diện trên board không phải dấu hiệu đã xử lý** —
+phải kiểm chính giá trị trường.
+
 ---
 
 ## 3. Điểm đặc biệt
@@ -336,7 +386,7 @@ phần phân bổ trước, tổng sau, để không ai đọc nhầm "khớp t�
 chỗ hở spec có thật trong LAB-4 để nó không thành bịa, nhưng vận tốc 22 SWP/sprint vẫn là con số
 chưa đo được. Dự phóng "7 sprint nữa" phải đọc như một phép tính, không phải một lời hứa.
 
-**Ghi 110 lệnh `item-edit` là cách làm thô.** Chạy được vì 55 item. Nếu 500 item thì phải gom thành
+**Ghi hàng trăm lệnh `item-edit` là cách làm thô.** Chạy được vì backlog cỡ này. Nếu 500 item thì phải gom thành
 mutation hàng loạt, và phải có đường chạy lại giữa chừng — thứ `create-backlog.py` có mà bước ghi
 điểm thì không.
 
@@ -356,7 +406,7 @@ người vẫn là người điền các trường đó.
 
 **Làm sao gán người thật vào Project công khai.** GitHub chỉ gán được tài khoản có thật, mà đề đòi
 "người phụ trách giả định" và luật dữ liệu cá nhân cấm dùng tên người thật. Tôi lách bằng một
-trường chữ riêng tên *Người phụ trách (giả định)*, điền cho **cả 55 item** bằng năm tên hư cấu đặt
+trường chữ riêng tên *Người phụ trách (giả định)*, điền cho **cả 173 item** bằng năm tên hư cấu đặt
 theo kiểu họ Việt cộng từ chỉ vai trò — *Nguyễn Văn Dev*, *Trần Thị Dev*, *Nguyễn Thị QA*,
 *Lê Văn BrSE*, *Phạm Thị PM* — để nhìn là biết tên giả, không trùng người thật. Nó hiển thị được,
 lọc được, nhưng **không phải** trường assignee nên mọi tính năng dựa trên assignee đều không dùng
@@ -370,7 +420,7 @@ luật vừa giữ được tính năng.
 
 | | |
 |---|---|
-| Item trên Project | 55 — 7 epic · 35 issue · 13 sub-issue |
+| Item trên Project | **173** — 7 epic · 35 issue (20 story màn hình) · 131 sub-issue |
 | Quan hệ cha-con tạo bằng GraphQL | 48 |
 | Work item được chấm điểm | 43 lá (12 container cộng dồn từ con) |
 | Tổng ước lượng | 173 SWP · 815,5 giờ · 5,83 người-tháng |
