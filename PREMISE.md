@@ -60,6 +60,6 @@ và là một trong các rủi ro trễ ở `progress-report.md`.
 | Ngày | Nội dung |
 |---|---|
 | 2026-10-18 | Khởi tạo khi break backlog từ bản LAB-4 đã nộp |
-| 2026-10-20 | Bỏ tham chiếu sheet/ô của bảng dự toán nội bộ |
+| 2026-10-20 | Dẫn nguồn dự toán LAB-1 theo cách mô tả thay vì theo địa chỉ ô |
 | 2026-10-21 | Chốt lại độ hạt: mỗi màn là story có 6 sub-issue theo vòng đời |
 | 2026-10-18 | Mục 3 nêu rõ các phương án đã cân nhắc thay vì chỉ nêu hiện trạng — theo review chéo |

@@ -122,7 +122,7 @@ point thì mọi phép cộng của Project trả ra con số không còn là đ
 bằng mắt. Đọc ngược toàn bộ Project ra JSON rồi đối chiếu bằng script:
 
 ```bash
-gh project item-list 2 --owner datdt-0510 --format json --limit 100
+gh project item-list 2 --owner datdt-0510 --format json --limit 300
 ```
 
 | Kiểm | Kết quả |
@@ -139,7 +139,7 @@ Phép kiểm cuối bắt được một lỗi thật — xem mục 2.4.
 Sau khi xếp Sprint 1 và cập nhật trạng thái, **không** viết báo cáo từ trí nhớ. Đọc ngược từ Project:
 
 ```bash
-gh project item-list 2 --owner datdt-0510 --format json --limit 100 > p2.json
+gh project item-list 2 --owner datdt-0510 --format json --limit 300 > p2.json
 ```
 
 rồi gom bằng Python: lọc `sprint.title == "Sprint 1"`, bỏ 2 container, nhóm theo `status`, cộng
@@ -421,8 +421,8 @@ luật vừa giữ được tính năng.
 | | |
 |---|---|
 | Item trên Project | **173** — 7 epic · 35 issue (20 story màn hình) · 131 sub-issue |
-| Quan hệ cha-con tạo bằng GraphQL | 48 |
-| Work item được chấm điểm | 43 lá (12 container cộng dồn từ con) |
+| Quan hệ cha-con tạo bằng GraphQL | **166** |
+| Work item mang điểm | **142 lá** (31 container cộng dồn từ con) |
 | Tổng ước lượng | 173 SWP · 815,5 giờ · 5,83 người-tháng |
 | Issue người kiểm lại điểm | **7** — 5 mẫu do skill chọn + 2 tự soi ngoài mẫu |
 | Trong đó **đổi điểm** | **5** — #26, #27, #51, #46, #53 |

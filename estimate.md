@@ -14,6 +14,13 @@ Mở trực tiếp bằng trình duyệt, tự chứa, không cần mạng.
 
 ## 1. Issue mẫu skill chọn để kiểm
 
+> **Phạm vi lần chấm này — khai trước để không gây hiểu nhầm.** Skill chấm **43 work item** của cấu
+> trúc backlog lúc đó. Sau này backlog được dựng lại theo vòng đời story, 20 màn tách thành 120
+> sub-issue giai đoạn; **những sub-issue đó không qua một lần chấm ma trận riêng** mà **thừa hưởng
+> điểm của chính story cha** theo luật chia ở mục 2. Nói cách khác: điểm gốc vẫn là điểm skill chấm
+> và người đã kiểm, phần tách ra chỉ **phân bổ lại trong nội bộ từng story** chứ không sinh thêm
+> điểm — nên tổng vẫn đúng 173 SWP.
+
 Skill `tkm:sun-estimate` chấm 43 work item lá bằng 5 worker cô lập — mỗi worker chỉ đọc **tiêu đề,
 thân và nhãn issue**, không có công cụ, không đọc được spec LAB-4. Bộ chọn xác định rút ra 5 issue
 mẫu theo vai trò: thấp nhất, trung vị dưới, cao nhất, ngoại lai, độ tin cậy thấp nhất.
@@ -98,7 +105,13 @@ mục 5 so hai thang khác nhau. Bản không trừ AI cho **6,66 giờ/SWP** �
 
 ### Cách áp nhất quán
 
-- `giờ issue = SWP × 4,7`, làm tròn tới **0,5 giờ**
+- `giờ issue = SWP × 4,7`, làm tròn tới **0,5 giờ** — áp cho mọi work item **không phải** sub-issue
+  giai đoạn
+- **Sub-issue giai đoạn của story dùng luật riêng:** giờ chia theo **tỷ lệ điểm trong story** rồi dồn
+  phần dư vào *Coding*, để tổng của sáu sub-issue bằng đúng giờ của story. Lý do: story là container
+  nên giờ của nó phải bằng tổng con; nếu áp `SWP × 4,7` cho từng sub-issue thì tổng lệch khỏi giờ
+  story vì làm tròn ba lần. **45/142 lá** rơi vào luật này, lệch tối đa 0,5 giờ mỗi lá so với công
+  thức chung — chênh do làm tròn, không phải chênh phạm vi
 - `giờ epic = tổng giờ issue con` — **không** tính lại từ SWP của epic, để tổng khớp đúng
 - Epic và issue cha là **container**: SWP là tổng con, không tra ma trận lần hai
 
@@ -194,14 +207,23 @@ kiểm xong, Agent ghi bằng `gh project item-edit` — cách làm kể ở [`A
 | 173 item có trường `SWP` | đủ, 0 thiếu |
 | 173 item có trường `Giờ ước lượng` | đủ, 0 thiếu |
 | Đối chiếu từng item với bảng đã chốt | 0 lệch |
-| Tổng SWP của 7 epic | 173 — khớp tổng 43 lá |
-| Tổng giờ của 7 epic | 815,5 — khớp tổng 43 lá |
+| Tổng SWP của 7 epic | 173 — khớp tổng 142 lá |
+| Tổng giờ của 7 epic | 815,5 — khớp tổng 142 lá |
+| Mỗi story có điểm cha bằng tổng 6 con | 20/20 khớp, cả SWP lẫn giờ |
 
 **Trường point chỉ ghi SWP**, đúng quy định của đề. Giờ nằm ở trường riêng.
 
-> Báo cáo HTML là sản phẩm của skill nên mang **170 SWP** — đã gồm 3 chỗ sửa trên issue mẫu nhưng
-> chưa gồm #46 và #53 vì hai chỗ đó nằm ngoài cơ chế hiệu chuẩn theo mẫu. Trường point trên Project
-> mang **173 SWP**, là con số người đã chốt. Chênh 3 điểm này là chủ ý, không phải sai sót.
+> **Hai chỗ báo cáo HTML lệch với Project, đều có chủ ý.**
+>
+> **Về điểm:** báo cáo mang **170 SWP** — đã gồm 3 chỗ sửa trên issue mẫu nhưng chưa gồm #46 và #53
+> vì hai chỗ đó nằm ngoài cơ chế hiệu chuẩn theo mẫu. Trường point trên Project mang **173 SWP**,
+> là con số người đã chốt.
+>
+> **Về số dòng:** báo cáo chấm **43 work item** — đó là ảnh chụp cấu trúc **trước khi dựng lại theo
+> vòng đời story**. Sau khi dựng lại, Project có **142 lá** vì 20 màn hình tách thành 120 sub-issue
+> giai đoạn. Tổng điểm **không đổi**: điểm của mỗi màn được chia cho các giai đoạn của chính nó chứ
+> không sinh thêm. Skill read-only với nguồn bên ngoài nên không ghi ngược lại báo cáo cũ được; giữ
+> nguyên bản chấm gốc và khai chênh ở đây, thay vì sinh lại báo cáo rồi mất dấu vết lần chấm đầu.
 
 ---
 
@@ -212,5 +234,5 @@ kiểm xong, Agent ghi bằng `gh project item-edit` — cách làm kể ở [`A
 | 2026-10-21 | Cập nhật số item sau khi dựng lại theo vòng đời story; tổng SWP và giờ không đổi |
 | 2026-10-18 | Chấm SWP lần đầu, người kiểm 5 mẫu + 2 chỗ ngoài mẫu, chốt hệ số 4,7 giờ/SWP |
 | 2026-10-18 | Mục 4 so theo từng epic thay vì chỉ so tổng — số LAB-1 tách theo nhóm màn |
-| 2026-10-20 | Bỏ tham chiếu ô và tên sheet của bảng dự toán nội bộ; giữ nguyên hệ số và phép tính |
+| 2026-10-20 | Dẫn nguồn dự toán LAB-1 theo cách mô tả thay vì theo địa chỉ ô; giữ nguyên hệ số và phép tính |
 | 2026-10-18 | Ghi chú chênh 0,1 do làm tròn ở mục 4 · nêu rõ sự cố LAB-3 là lời khai, không dẫn link được |
