@@ -21,7 +21,7 @@ tính là khác biệt ở đây.
 | **Giả định bổ sung** | 4, khai ở [`PREMISE.md`](PREMISE.md) §2. Một trong đó là **giả định sai đã tự sửa** — xem `estimate.md` §4 |
 | **Chỗ không được phép đoán** | 1 — tư cách của 買出人 (`ACT-04`). LAB-4 ghi thẳng là phải hỏi khách, nên thành issue [#29](https://github.com/datdt-0510/thacsiai05-lab5/issues/29) gắn nhãn `cần-khách-trả-lời` chứ không thành giả định |
 | **Quy mô backlog** | **7 epic · 35 issue · 13 sub-issue = 55 item** trên Project |
-| **Tổng ước lượng** | **173 SWP ≈ 815,5 giờ ≈ 5,83 người-tháng** (hệ số 4,7 giờ/SWP, dẫn xuất từ dự toán LAB-1) |
+| **Tổng ước lượng** | **173 SWP ≈ 815,5 giờ ≈ 5,83 người-tháng** (hệ số 4,7 giờ/SWP, dẫn xuất từ dự toán LAB-1). *SWP = Standard Work Point — điểm công chuẩn, chấm theo ma trận `Scope × Complexity`; xem [`estimate.md`](estimate.md)* |
 | **Sprint đã chạy** | `Sprint 1` — 2026-10-05 → 2026-10-18, giả lập. Hoàn thành 22/37 SWP = 59%, có 2 issue `Blocked` với nguyên nhân nối về chỗ hở spec có thật. Báo cáo ở [`progress-report.md`](progress-report.md) |
 
 Epic thứ 7 — **Nền tảng** — là thứ LAB-4 không có: ADR, thiết kế cơ sở dữ liệu và tài liệu kiến trúc

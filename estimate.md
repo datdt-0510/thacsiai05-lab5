@@ -1,5 +1,11 @@
 # Ước lượng — SWP và quy ra giờ
 
+> **SWP = Standard Work Point** — điểm công chuẩn. Mỗi work item nhận một điểm theo **một bảng
+> chuẩn cố định**, nên cùng một mô tả công việc luôn ra cùng một điểm. Điểm là đầu ra của hai trục
+> **Scope** (độ rộng — đụng bao nhiêu chỗ) và **Complexity** (độ khó), tra ma trận `Scope × Complexity`.
+> Hai trục **nhân** chứ không cộng, vì độ khó áp lên từng đơn vị khối lượng. Issue cha không chấm
+> trực tiếp: điểm của nó là tổng điểm các con.
+
 **Báo cáo HTML của skill:** [`swp-report/sun-estimate-product-a.html`](swp-report/sun-estimate-product-a.html)
 
 Mở trực tiếp bằng trình duyệt, tự chứa, không cần mạng.
